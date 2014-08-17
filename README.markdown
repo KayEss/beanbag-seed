@@ -10,5 +10,6 @@ You need to have nodejs, npm and bower installed. There's a ton of stuff on the 
 
 Use bower to install the components needed.
 
+    npm install
     bower install
 

@@ -8,5 +8,8 @@
   },
   "author": "Kirit Saelensminde",
   "license": "Copyright 2014 Felspar Co. Ltd.",
-  "repository": "git@git.proteus-tech.com:kirit/jamnong.git"
+  "repository": "git@git.proteus-tech.com:kirit/jamnong.git",
+  "devDependencies": {
+    "gulp": "~3.8.7"
+  }
 }
