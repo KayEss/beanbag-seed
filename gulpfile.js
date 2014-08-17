@@ -6,6 +6,9 @@ gulp.task('libs', function() {
     gulp.
         src('bower_components/jquery/dist/jquery.js').
         pipe(gulp.dest('www/lib'));
+    gulp.
+        src('bower_components/requirejs/require.js').
+        pipe(gulp.dest('www/lib'));
 });
 
 gulp.task('less', function() {
@@ -17,9 +20,15 @@ gulp.task('less', function() {
         pipe(gulp.dest('www/css'));
 });
 
+gulp.task('javascript', function() {
+    gulp.
+        src('js/*').
+        pipe(gulp.dest('www/lib'));
+});
+
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', []);
+    gulp.watch('js/*.js', ['javascript']);
     gulp.watch('css/*.less', ['less']);
 });
 
-gulp.task('default', ['libs', 'less', 'watch']);
+gulp.task('default', ['libs', 'javascript', 'less', 'watch']);
