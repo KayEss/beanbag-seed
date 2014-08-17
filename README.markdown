@@ -1,4 +1,4 @@
-# Requirements capture #
+# Beanbag template for AngularJS #
 
 This is really just a test to see if anything useful can be done.
 
@@ -19,3 +19,4 @@ Run gulp to build the web service.
 
     gulp
 
+You should now be able to connect with the index page by going to http://localhost:9090/
