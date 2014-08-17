@@ -1,0 +1,12 @@
+{
+  "name": "jamnong",
+  "version": "0.0.1",
+  "description": "Requirements capture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kirit Saelensminde",
+  "license": "Copyright 2014 Felspar Co. Ltd.",
+  "repository": "git@git.proteus-tech.com:kirit/jamnong.git"
+}
