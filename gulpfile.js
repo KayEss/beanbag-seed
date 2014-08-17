@@ -5,7 +5,7 @@ var _ = require('underscore');
 
 gulp.task('libs', function() {
     _.each(
-        ['jquery/dist/jquery', 'requirejs/require'],
+        ['angularjs/angular', 'jquery/dist/jquery', 'requirejs/require'],
         function(item) {
             gulp.
                 src(path.join('bower_components', item) + '.js').
