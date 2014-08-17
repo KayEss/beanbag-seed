@@ -1,14 +1,17 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
+var _ = require('underscore');
 
 gulp.task('libs', function() {
-    gulp.
-        src('bower_components/jquery/dist/jquery.js').
-        pipe(gulp.dest('www/lib'));
-    gulp.
-        src('bower_components/requirejs/require.js').
-        pipe(gulp.dest('www/lib'));
+    _.each(
+        ['jquery/dist/jquery', 'requirejs/require'],
+        function(item) {
+            gulp.
+                src(path.join('bower_components', item) + '.js').
+                pipe(gulp.dest('www/lib'));
+        }
+    );
 });
 
 gulp.task('less', function() {
