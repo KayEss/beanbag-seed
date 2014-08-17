@@ -10,6 +10,7 @@
   "license": "Copyright 2014 Felspar Co. Ltd.",
   "repository": "git@git.proteus-tech.com:kirit/jamnong.git",
   "devDependencies": {
-    "gulp": "~3.8.7"
+    "gulp": "~3.8.7",
+    "gulp-less": "~1.3.3"
   }
 }
