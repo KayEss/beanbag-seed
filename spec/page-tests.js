@@ -44,6 +44,15 @@ define(['test', 'app/app'], function() {
                 $httpBackend.flush();
                 expect(scope.controller.saving).toBe(false);
             });
+            describe('html', function() {
+                it('gets emtpy html', function() {
+                    expect(scope.controller.html()).toBe("");
+                });
+                it('gets a paragraph', function() {
+                    scope.homepage.content = 'Paragraph';
+                    expect(scope.controller.html()).toBe('<p>Paragraph</p>');
+                });
+            });
         });
     });
 });
