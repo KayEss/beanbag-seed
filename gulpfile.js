@@ -21,8 +21,7 @@ gulp.task('clean', function() {
 gulp.task('bower', function() {
     _.each(
         ['angularjs/angular', 'angular-mocks/angular-mocks',
-            'angular-ui-router/release/angular-ui-router',
-            'jquery/dist/jquery', 'requirejs/require'],
+            'jquery/dist/jquery', 'markdown/lib/markdown', 'requirejs/require'],
         function(item) {
             gulp.
                 src(path.join('bower_components', item) + '.js').
