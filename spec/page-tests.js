@@ -14,6 +14,9 @@ define(['test', 'app/app'], function() {
         });
         describe('first load', function() {
             it('pushes new data to the server', function() {
+                var scope = $rootScope.$new();
+                var Page = $controller('Page', {$scope: scope});
+                expect(scope.homepage.title).toBe("Beanbag template for AngularJS");
             });
         });
     });
