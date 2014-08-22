@@ -1,17 +1,32 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-controller="Page">
     <head>
         <script data-main="lib/main" src="lib/require.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="css/site.css">
-        <title>Beanbag template for AngularJS</title>
+        <link type="text/css" rel="stylesheet" href="lib/site.css">
+        <title>{{ homepage.title }}</title>
+        <style>
+            [ng-cloak] {
+                display: none !important;
+            }
+        </style>
     </head>
     <body>
-        <div  class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header" ng-cloak>
+                    <a class="navbar-brand" href="/">{{ homepage.title }}</a>
+                    <!--a class="navbar-brand">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a-->
+                </div>
+            </div>
+        </nav>
+        <div  class="container" ng-cloak>
             <div class="row">
                 <div class="col-xs-12">
-                    <h1>Beanbag template for AngularJS</h1>
+                    <h1>{{ homepage.title }}</h1>
                 </div>
             </div>
         </div>

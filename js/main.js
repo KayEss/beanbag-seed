@@ -4,7 +4,7 @@ requirejs.config({
         'angular': {
             deps: ['jquery'],
             exports: 'angular',
-        }
+        },
     },
-    deps: ['angular'],
+    deps: ['app/app'],
 });
