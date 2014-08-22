@@ -34,7 +34,7 @@ define(['test', 'app/app'], function() {
                 expect(scope.homepage.title).toBe("Site title");
             });
             it('sets up the controller', function() {
-                expect(scope.controller.title.editable).toBe(true);
+                expect(scope.controller.editable).toBe(true);
             });
             it('can save a change to the title', function() {
                 $httpBackend.expectPUT('/db/homepage/',

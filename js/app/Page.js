@@ -4,8 +4,7 @@ define(['markdown'], function() {
             success(function(data) {
                 $scope.homepage = data;
                 $scope.controller = {
-                    title: {editable: true},
-                    homepage: {editable: true},
+                    editable: true,
                     html: function() {
                         return $sce.trustAsHtml(markdown.toHTML($scope.homepage.content || ''));
                     },
@@ -14,8 +13,7 @@ define(['markdown'], function() {
                         $http.put('/db/homepage/', $scope.homepage).
                             success(function() {
                                 $scope.controller.saving = false;
-                                $scope.controller.title.editing = false;
-                                $scope.controller.homepage.editing = false;
+                                $scope.controller.editing = false;
                             });
                     },
                 };

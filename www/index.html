@@ -24,16 +24,15 @@
             <div class="row">
                 <section class="col-xs-12">
                     <h1>
-                        <span ng-hide="controller.title.editing">
+                        <span ng-hide="controller.editing">
                             {{ homepage.title }}
-                            <small ng-show="controller.title.editable">
+                            <small ng-show="controller.editable">
                                 <i class="glyphicon glyphicon-pencil"
-                                    ng-click="controller.title.editing=true"></i>
+                                    ng-click="controller.editing=true"></i>
                             </small>
                         </span>
                         <form role="form" class="form-horizontal"
-                                ng-show="controller.title.editing"
-                                ng-submit="controller.save()">
+                                ng-show="controller.editing">
                             <div class="form-group">
                                 <input class="form-control input-lg" type="text"
                                         ng-model="homepage.title">
@@ -42,22 +41,19 @@
                     </h1>
                     <div class="row">
                         <div class="col-xs-12"
-                                ng-class="{'col-md-6': controller.homepage.editing}">
-                            <div class="pull-left"
-                                    ng-hide="controller.homepage.editing">
-                                <i class="glyphicon glyphicon-pencil"
-                                    ng-click="controller.homepage.editing=true"></i>
-                            </div>
+                                ng-class="{'col-md-6': controller.editing}">
                             <div ng-bind-html="controller.html()"></div>
                         </div>
-                        <div class="col-xs-12" ng-show="controller.homepage.editing"
-                                ng-class="{'col-md-6': controller.homepage.editing}">
+                        <div class="col-xs-12" ng-show="controller.editing"
+                                ng-class="{'col-md-6': controller.editing}">
                             <form role="form" ng-submit="controller.save()">
                                 <div class="form-group">
                                     <textarea class="form-control" rows="15"
                                         ng-model="homepage.content"></textarea>
-                                    <button type="submit">Save</button>
                                 </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
                             </form>
                         </div>
                     </div>
