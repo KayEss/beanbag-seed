@@ -20,13 +20,28 @@ define(['test', 'app/app'], function() {
             $httpBackend.flush();
         });
         describe('on load', function() {
-            it('gets the homepage title', function() {
-                var scope = $rootScope.$new();
+            var scope, Page;
+            beforeEach(function() {
+                scope = $rootScope.$new();
                 $httpBackend.expectGET('/db/homepage/').
                     respond({title: "Site title"});
-                var Page = $controller('Page', {$scope: scope});
+                Page = $controller('Page', {$scope: scope});
                 $httpBackend.flush();
+            });
+            it('gets the homepage title', function() {
                 expect(scope.homepage.title).toBe("Site title");
+            });
+            it('sets up the controller', function() {
+                expect(scope.controller.title.editable).toBe(true);
+            });
+            it('can save a change to the title', function() {
+                $httpBackend.expectPUT('/db/homepage/',
+                        '{"title":"Site title"}').
+                    respond("New title");
+                scope.controller.save();
+                expect(scope.controller.saving).toBe(true);
+                $httpBackend.flush();
+                expect(scope.controller.saving).toBe(false);
             });
         });
     });

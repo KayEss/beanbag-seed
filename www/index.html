@@ -25,9 +25,25 @@
         </nav>
         <div  class="container" ng-cloak>
             <div class="row">
-                <div class="col-xs-12">
-                    <h1>{{ homepage.title }}</h1>
-                </div>
+                <section class="col-xs-12">
+                    <h1>
+                        <span ng-hide="controller.title.editing">
+                            {{ homepage.title }}
+                            <small ng-show="controller.title.editable">
+                                <i class="glyphicon glyphicon-pencil"
+                                    ng-click="controller.title.editing=true"></i>
+                            </small>
+                        </span>
+                        <form role="form" class="form-horizontal"
+                                ng-show="controller.title.editing"
+                                ng-submit="controller.save()">
+                            <div class="form-group">
+                                <input class="form-control input-lg" type="text"
+                                        ng-model="homepage.title">
+                            </div>
+                        </form>
+                    </h1>
+                </section>
             </div>
         </div>
     </body>
