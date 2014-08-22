@@ -1,12 +1,14 @@
 define(['test', 'app/app'], function() {
     describe('Page controller', function() {
         beforeEach(module('app'));
-        var $controller, $rootScope, $httpBackend;
+        var $controller, $rootScope, $httpBackend, $sce;
         beforeEach(function() {
-            angular.mock.inject(function(_$controller_, _$rootScope_, _$httpBackend_) {
+            angular.mock.inject(function(_$controller_, _$rootScope_,
+                    _$httpBackend_, _$sce_) {
                 $controller = _$controller_;
                 $rootScope = _$rootScope_;
                 $httpBackend = _$httpBackend_;
+                $sce = _$sce_;
             });
         });
         afterEach(function() {
@@ -50,7 +52,8 @@ define(['test', 'app/app'], function() {
                 });
                 it('gets a paragraph', function() {
                     scope.homepage.content = 'Paragraph';
-                    expect(scope.controller.html()).toBe('<p>Paragraph</p>');
+                    expect($sce.getTrustedHtml(scope.controller.html())).
+                        toBe('<p>Paragraph</p>');
                 });
             });
         });

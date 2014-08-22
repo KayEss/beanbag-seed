@@ -1,12 +1,13 @@
 define(['markdown'], function() {
-    return function($scope, $http) {
+    return function($scope, $http, $sce) {
         $http.get('/db/homepage/').
             success(function(data) {
                 $scope.homepage = data;
                 $scope.controller = {
                     title: {editable: true},
+                    homepage: {editable: true},
                     html: function() {
-                        return markdown.toHTML($scope.homepage.content || '');
+                        return $sce.trustAsHtml(markdown.toHTML($scope.homepage.content || ''));
                     },
                     save: function() {
                         $scope.controller.saving = true;
@@ -14,6 +15,7 @@ define(['markdown'], function() {
                             success(function() {
                                 $scope.controller.saving = false;
                                 $scope.controller.title.editing = false;
+                                $scope.controller.homepage.editing = false;
                             });
                     },
                 };

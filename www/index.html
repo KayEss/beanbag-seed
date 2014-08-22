@@ -48,13 +48,16 @@
                                 <i class="glyphicon glyphicon-pencil"
                                     ng-click="controller.homepage.editing=true"></i>
                             </div>
-                            {{ controller.html() }}
+                            <div ng-bind-html="controller.html()"></div>
                         </div>
                         <div class="col-xs-12" ng-show="controller.homepage.editing"
                                 ng-class="{'col-md-6': controller.homepage.editing}">
                             <form role="form" ng-submit="controller.save()">
-                                <textarea class="form-control" rows="15"
-                                    ng-model="homepage.content"></textarea>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="15"
+                                        ng-model="homepage.content"></textarea>
+                                    <button type="submit">Save</button>
+                                </div>
                             </form>
                         </div>
                     </div>
