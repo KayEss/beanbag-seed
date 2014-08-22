@@ -36,8 +36,9 @@ define(['test', 'app/app'], function() {
             });
             it('can save a change to the title', function() {
                 $httpBackend.expectPUT('/db/homepage/',
-                        '{"title":"Site title"}').
+                        '{"title":"New title"}').
                     respond("New title");
+                scope.homepage.title = "New title";
                 scope.controller.save();
                 expect(scope.controller.saving).toBe(true);
                 $httpBackend.flush();
