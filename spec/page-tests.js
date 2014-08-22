@@ -9,14 +9,24 @@ define(['test', 'app/app'], function() {
                 $httpBackend = _$httpBackend_;
             });
         });
-        it('can load the controller', function() {
-            expect($controller('Page', {$scope: $rootScope.$new()})).toBeTruthy();
+        afterEach(function() {
+            $httpBackend.verifyNoOutstandingExpectation();
+            $httpBackend.verifyNoOutstandingRequest();
         });
-        describe('first load', function() {
-            it('pushes new data to the server', function() {
+        it('can load the controller', function() {
+            $httpBackend.expectGET('/db/homepage/').
+                respond({title: "Site title"});
+            expect($controller('Page', {$scope: $rootScope.$new()})).toBeTruthy();
+            $httpBackend.flush();
+        });
+        describe('on load', function() {
+            it('gets the homepage title', function() {
                 var scope = $rootScope.$new();
+                $httpBackend.expectGET('/db/homepage/').
+                    respond({title: "Site title"});
                 var Page = $controller('Page', {$scope: scope});
-                expect(scope.homepage.title).toBe("Beanbag template for AngularJS");
+                $httpBackend.flush();
+                expect(scope.homepage.title).toBe("Site title");
             });
         });
     });

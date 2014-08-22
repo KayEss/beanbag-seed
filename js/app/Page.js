@@ -1,5 +1,8 @@
 define([], function() {
-    return function($scope) {
-        $scope.homepage = {title: "Beanbag template for AngularJS"};
+    return function($scope, $http) {
+        $http.get('/db/homepage/').
+            success(function(data) {
+                $scope.homepage = data;
+            });
     };
 });
