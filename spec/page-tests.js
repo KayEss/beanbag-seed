@@ -37,9 +37,10 @@ define(['test', 'app/app'], function() {
                 expect(scope.controller.editable).toBe(true);
             });
             it('can save a change to the title', function() {
-                $httpBackend.expectPUT('/db/homepage/',
-                        '{"title":"New title"}').
-                    respond("New title");
+                $httpBackend.expectPUT(
+                        '/db/homepage/',
+                        {title: "New title"}).
+                    respond({title: "New title"});
                 scope.homepage.title = "New title";
                 scope.controller.save();
                 expect(scope.controller.saving).toBe(true);
