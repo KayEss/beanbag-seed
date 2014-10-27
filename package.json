@@ -1,14 +1,14 @@
 {
   "name": "beanbag-seed",
   "version": "0.0.2",
-  "description": "Requirements capture",
+  "description": "Seed project",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
   },
   "author": "Kirit Saelensminde",
   "license": "Copyright 2014 Felspar Co. Ltd.",
-  "repository": "git@git.proteus-tech.com:kirit/jamnong.git",
+  "repository": "https://github.com/KayEss/beanbag-seed.git",
   "devDependencies": {
     "gulp": "~3.8.7",
     "gulp-less": "~1.3.3",
